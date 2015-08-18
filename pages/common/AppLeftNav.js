@@ -39,7 +39,12 @@ module.exports = connect(function(getState, props){
     getMenuItems() {
       return [
         { type: MenuItem.Types.SUBHEADER, text: 'Resources' },
-        { type: MenuItem.Types.LINK, payload: 'https://github.com/callemall/material-ui', text: 'GitHub' }
+        { type: MenuItem.Types.LINK, payload: 'https://github.com/TucsonReactJS/redux-demo', text: 'GitHub' },
+        { type: MenuItem.Types.LINK, payload: 'https://www.google.com/design/spec/material-design', text: 'Material Design' },
+        { type: MenuItem.Types.LINK, payload: 'https://github.com/callemall/material-ui', text: 'Material UI' },
+        { type: MenuItem.Types.LINK, payload: 'https://github.com/rackt/redux', text: 'Redux' },
+        { type: MenuItem.Types.LINK, payload: 'https://github.com/rackt/react-router', text: 'React Router' },
+        { type: MenuItem.Types.LINK, payload: 'https://github.com/facebook/immutable-js', text: 'Immutable' }
       ];
     },
 
