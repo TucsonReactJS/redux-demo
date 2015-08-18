@@ -20,11 +20,11 @@ var List = require('./pages/List');
 // Setup Redux
 //
 const finalCreateStore = compose(
-  //devTools(),
-  //persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
+  devTools(),
+  persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
   createStore
 );
-let createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+let createStoreWithMiddleware = applyMiddleware(thunk)(finalCreateStore);
 const reducer = combineReducers(reducers);
 const store = createStoreWithMiddleware(reducer);
 
@@ -68,23 +68,23 @@ var Root = React.createClass({
 
   render: function() {
     const { history } = this.props;
-    return (
-      <Provider store={store}>
-        {renderRoutes.bind(null, history)}
-      </Provider>
-    );
-
     //return (
-    //  <div>
-    //    <Provider store={store}>
-    //      {renderRoutes.bind(null, history)}
-    //    </Provider>
-    //    <DebugPanel top right bottom>
-    //      <DevTools store={store}
-    //                monitor={LogMonitor} />
-    //    </DebugPanel>
-    //  </div>
+    //  <Provider store={store}>
+    //    {renderRoutes.bind(null, history)}
+    //  </Provider>
     //);
+
+    return (
+      <div>
+        <Provider store={store}>
+          {renderRoutes.bind(null, history)}
+        </Provider>
+        <DebugPanel top right bottom>
+          <DevTools store={store}
+                    monitor={LogMonitor} />
+        </DebugPanel>
+      </div>
+    );
   }
 });
 

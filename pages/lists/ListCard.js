@@ -30,9 +30,10 @@ module.exports = React.createClass({
 
     return {
       card: {
-        marginBottom: 32,
+        marginBottom: '32px',
         opacity: cardOpacity,
-        cursor: 'pointer'
+        cursor: 'pointer',
+        display: 'block'
       },
       cardTitle: {
         height: 150,
